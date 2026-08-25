@@ -1,21 +1,41 @@
 #!/usr/bin/env python3
-"""Bible d'univers en Markdown : personnages, lieux, factions, systeme de
-magie, objets. Chaque fichier contient une section '## Nom' par entite, avec
-des champs '- **cle**: valeur' et un historique horodate des mises a jour.
+"""Bible d'univers en Markdown. Chaque fichier de categorie contient une
+section '## Nom' par entite, avec des champs '- **cle**: valeur' et un
+historique horodate des mises a jour.
+
+L'ordre de CATEGORIES suit la progression professionnelle de worldbuilding
+"top-down" (du plus fondamental/cosmique au plus concret/individuel) :
+cosmologie -> magie -> geographie -> histoire -> peuples -> cultures ->
+religions -> factions -> objets -> personnages.
 """
 import re
 
 from config import BIBLE_DIR
 
-CATEGORIES = ["characters", "locations", "factions", "magic_system", "items", "timeline"]
+CATEGORIES = [
+    "cosmology",
+    "magic_system",
+    "locations",
+    "timeline",
+    "races",
+    "cultures",
+    "religions",
+    "factions",
+    "items",
+    "characters",
+]
 
 FILE_TITLES = {
-    "characters": "Personnages",
-    "locations": "Lieux",
-    "factions": "Factions",
+    "cosmology": "Cosmologie & metaphysique",
     "magic_system": "Systeme de magie",
-    "items": "Objets",
+    "locations": "Lieux",
     "timeline": "Chronologie (evenements cles, tous fils POV confondus)",
+    "races": "Peuples & especes",
+    "cultures": "Cultures & societes",
+    "religions": "Religions & croyances",
+    "factions": "Factions",
+    "items": "Objets",
+    "characters": "Personnages",
 }
 
 LOCK_FIELD = "verrouille"
