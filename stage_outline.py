@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Etape 2 : generation du plan du roman (chapitre par chapitre), avec
-validation humaine et feedback avant sauvegarde definitive."""
+"""Etape : generation du plan du roman (chapitre par chapitre, multi-POV),
+avec validation humaine et feedback avant sauvegarde definitive."""
 import config
 import md_bible
 import outline_store
@@ -33,15 +33,15 @@ SAVE_OUTLINE_TOOL = {
 
 SYSTEM_PROMPT = """Tu es un co-auteur expert en structure narrative fantasy (structure en trois actes, \
 voyage du heros) pour un roman a PLUSIEURS PERSONNAGES POV (points de vue alternes, comme dans un roman \
-choral). A partir de la premisse fournie, propose un decoupage chapitre par chapitre coherent, avec une \
-progression dramatique claire (mise en place, montee des enjeux, climax, resolution) pour chaque fil \
-POV. Assure une rotation equilibree entre les personnages POV (evite qu'un personnage disparaisse trop \
-longtemps), et prevois des points de convergence ou les fils se croisent. Utilise l'outil web_search si \
-tu as besoin d'inspiration (structures narratives, mythologies, folklore). Pour chaque \
-personnage/lieu/faction principal introduit dans le plan, appelle record_bible_entry (pour un \
-personnage POV recurrent, precise son role et son arc dans le champ 'arc_narratif'). Termine en appelant \
-save_outline UNE SEULE FOIS avec la liste complete et finale des chapitres, en indiquant le POV de \
-chacun."""
+choral). A partir de la premisse et de la bible d'univers (worldbuilding) deja etablies, propose un \
+decoupage chapitre par chapitre coherent, avec une progression dramatique claire (mise en place, montee \
+des enjeux, climax, resolution) pour chaque fil POV. Assure une rotation equilibree entre les \
+personnages POV (evite qu'un personnage disparaisse trop longtemps), et prevois des points de \
+convergence ou les fils se croisent. Utilise l'outil web_search si tu as besoin d'inspiration \
+(structures narratives, mythologies, folklore). Pour chaque personnage/lieu/faction principal introduit \
+dans le plan, appelle record_bible_entry (pour un personnage POV recurrent, precise son role et son \
+arc dans le champ 'arc_narratif'). Termine en appelant save_outline UNE SEULE FOIS avec la liste \
+complete et finale des chapitres, en indiquant le POV de chacun."""
 
 
 def generate_outline(num_chapters=12):
