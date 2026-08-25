@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Etape 4 : verification de coherence entre tous les chapitres rediges et la
-bible d'univers (statuts, chronologie, regles de magie, descriptions...)."""
+"""Etape : verification de coherence entre tous les chapitres rediges et la
+bible d'univers (statuts, chronologie inter-POV, regles de magie, etc.)."""
 from datetime import datetime
 
 import config
