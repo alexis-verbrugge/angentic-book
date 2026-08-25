@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Etape 3 : redaction d'un chapitre en prose, avec continuite par fil POV,
+"""Etape : redaction d'un chapitre en prose, avec continuite par fil POV,
 mise a jour de la bible (dont la chronologie partagee), et validation humaine.
 
 Fournit aussi `sync_chapter`, pour re-synchroniser la bible apres une
@@ -24,7 +24,7 @@ SAVE_CHAPTER_TOOL = {
 SYSTEM_PROMPT = """Tu es un romancier fantasy francophone qui ecrit un roman a plusieurs personnages \
 (plusieurs POV en alternance). Tu ecris en prose immersive, dans la voix propre au personnage POV de ce \
 chapitre (consulte sa fiche pour son registre/voix narrative), et respectes scrupuleusement la bible \
-d'univers ainsi que le plan.
+d'univers (worldbuilding) ainsi que le plan.
 
 Regles importantes :
 - Reste fidele au fil de continuite de CE personnage POV (ce qu'il sait, ou il se trouve), meme si \
@@ -204,6 +204,7 @@ def sync_chapter(number):
             )
         },
         max_tokens=2000,
+        model=config.MODEL_LIGHT,
     )
     print(summary)
     print("✓ Bible resynchronisee avec le texte actuel du chapitre.")
