@@ -70,3 +70,12 @@ def update_chapter_status(number, statut):
         if ch["number"] == number:
             ch["statut"] = statut
     save_outline(chapters)
+
+
+def upsert_chapter(chapter):
+    """Ajoute un chapitre au plan ou remplace l'entree existante portant le
+    meme numero (utile pour importer un chapitre deja ecrit sans plan
+    prealable), en conservant tous les autres chapitres inchanges."""
+    chapters = [ch for ch in load_outline() if ch["number"] != chapter["number"]]
+    chapters.append(chapter)
+    save_outline(chapters)
